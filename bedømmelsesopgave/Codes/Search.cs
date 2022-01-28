@@ -102,7 +102,40 @@ namespace bedømmelsesopgave.Codes
             Console.Clear();
             Console.WriteLine("skriv den lærer du skal finde info om:");
             Console.WriteLine("");
+            string læreroptions = null;
+            try { læreroptions = Console.ReadLine(); }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Denne linjie kan ikke være null, Prøv igen");
+                System.Threading.Thread.Sleep(2500);
+                Fag();
+            }
+            int rowsIn2DArray = H1.MyArray.GetLength(0);
+            int columnCount = H1.MyArray.GetLength(1);
 
+            for (int j = 0; j < rowsIn2DArray; j++)
+            {
+                for (int k = 0; k < columnCount; k++)
+                {
+                    if (k == 1)
+                    {
+                        string item = H1.MyArray[j, k].ToString();
+                        if (item == læreroptions)
+                        {
+                            Console.WriteLine(H1.MyArray[j, 0]);
+                            List<Elever> elever = (List<Elever>)H1.MyArray[j, 2];
+                            foreach (Elever elev in elever)
+                            {
+                                Console.WriteLine($"elev: {elev.fornavn_} {elev.efternavn_}");
+                            }
+
+                        }
+                     
+                    }
+
+                }
+            }
+            Console.ReadKey();
         }
     }
 }

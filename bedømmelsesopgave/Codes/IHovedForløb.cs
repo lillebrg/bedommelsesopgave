@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace bedømmelsesopgave.Codes
 {
-    internal class IHovedForløb
+    internal interface IHovedForløb
     {
+        public object [,] CourseInfo { get; set; }
+        public record SearchResult(object obj1, object obj2);
     }
 }

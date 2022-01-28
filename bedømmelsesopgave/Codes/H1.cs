@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace bedømmelsesopgave.Codes
 {
+    internal class h1 : IHovedForløb
+    {
+        public object[,] CourseInfo { get; set; }
 
+        public record SearchResult(object obj1, object obj2);
+
+
+    }
     public class H1
     {
         public static object[,] MyArray { get; set; }
@@ -47,11 +54,3 @@ namespace bedømmelsesopgave.Codes
         }
     }
 }
-
-
-
-
-//string fag = "Grundlæggende programmering";
-//string lærer = "Niels";
-//List <Students> elever = ElevId, ForNavn, EfterNavn, TelefonN;
-//    int[] ugeNr = new int[] { 3, 4 };

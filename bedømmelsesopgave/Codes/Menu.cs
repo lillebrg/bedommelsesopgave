@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace bedømmelsesopgave.Codes
 {
+
     internal class Menu
     {
         static void main(string[] args)
@@ -21,6 +21,10 @@ namespace bedømmelsesopgave.Codes
         {
             do
             {
+
+                Console.WriteLine("Dage Tilbage Indtil Ferie");
+                Console.WriteLine((new DateConvertor(new DateTime(2022, 2, 11))).AntalDage);
+                Console.ReadKey();
                 Console.Clear();
                 Console.WriteLine("bedømmelses opgave");
                 Console.WriteLine("1) for fag");
