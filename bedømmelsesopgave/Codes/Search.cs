@@ -73,7 +73,6 @@ namespace bedømmelsesopgave.Codes
                 System.Threading.Thread.Sleep(2500);
                 Fag();
             }
-
             int rowsIn2DArray = H1.MyArray.GetLength(0);
             int columnCount = H1.MyArray.GetLength(1);
 
