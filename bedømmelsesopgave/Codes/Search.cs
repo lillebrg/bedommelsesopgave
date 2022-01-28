@@ -18,7 +18,7 @@ namespace bedømmelsesopgave.Codes
        
         public static void Fag()
         {
-            Console.Clear();
+            
             Console.WriteLine("skriv det fag du skal bruge data til");
             Console.WriteLine("");
             Console.WriteLine("muligheder:");
@@ -26,7 +26,8 @@ namespace bedømmelsesopgave.Codes
             Console.WriteLine("-Grundlæggende programmering");
             Console.WriteLine("-Database programmering");
             Console.WriteLine("-Studieteknik");
-            try { string fagoptions = Console.ReadLine(); }
+            string fagoptions = null;
+            try {fagoptions = Console.ReadLine(); }
             catch (NullReferenceException)
             {
                 Console.WriteLine("Denne linjie kan ikke være null, Prøv igen");
@@ -41,18 +42,58 @@ namespace bedømmelsesopgave.Codes
             {
                 for (int k = 0; k < columnCount; k++)
                 {
-                    string item = H1.MyArray[j, k].ToString();
-                    Console.WriteLine(item);
+                    if (k == 0)
+                    {
+                        string item = H1.MyArray[j, k].ToString();
+                        if (fagoptions == item)
+                        {
+                            Console.WriteLine(H1.MyArray[j,1]);
+                            List<Elever> elever = (List<Elever>)H1.MyArray[j, 2];
+                            foreach (Elever elev in elever)
+                            {
+                                Console.WriteLine($"Elev: {elev.fornavn_} {elev.efternavn_}");
+                                
+                            }
+                        }
+                    }
+                    
                 }
             }
         }
 
         public static void Elever()
         {
-            Console.Clear();
             Console.WriteLine("skriv den elev du skal finde info om:");
             Console.WriteLine("");
-           
+            string eleveroptions = null;
+            try { eleveroptions = Console.ReadLine(); }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Denne linjie kan ikke være null, Prøv igen");
+                System.Threading.Thread.Sleep(2500);
+                Fag();
+            }
+
+            int rowsIn2DArray = H1.MyArray.GetLength(0);
+            int columnCount = H1.MyArray.GetLength(1);
+
+            for (int j = 0; j < rowsIn2DArray; j++)
+            {
+                for (int k = 0; k < columnCount; k++)
+                {
+                    if (k == 2)
+                    {
+                        List<Elever> item = (List<Elever>)H1.MyArray[j, k];
+                        Elever matchelever = item.FirstOrDefault(elev => (elev.fornavn_ + " " + elev.efternavn_) == eleveroptions);
+                        if (matchelever != null)
+                        {
+                            Console.WriteLine(H1.MyArray[j, 0]);
+                            Console.WriteLine(H1.MyArray[j, 1]); 
+                        }
+                    }
+
+                }
+            }
 
         }
 

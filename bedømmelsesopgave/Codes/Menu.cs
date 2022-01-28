@@ -24,8 +24,8 @@ namespace bedømmelsesopgave.Codes
                 Console.Clear();
                 Console.WriteLine("bedømmelses opgave");
                 Console.WriteLine("1) for fag");
-                Console.WriteLine("2) for lærer");
-                Console.WriteLine("3) for elev");
+                Console.WriteLine("2) for elev");
+                Console.WriteLine("3) for lærer");
                 Console.WriteLine("4) exit");
                 Console.WriteLine("\r\nvælg en: ");
                 string vælger = Console.ReadLine();
